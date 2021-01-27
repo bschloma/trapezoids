@@ -30,27 +30,6 @@ function [trapezoid_signal_out] = update_trapezoid_signal(trapezoid_signal_prior
 % updates trapezoid_signal with Euler integration of a piecewise derivative
 % (dfdt).
 % 
-% 
-% period = 2/r + t_on + t_off;
-% 
-% num_cycles_occured = floor(t/period);
-% 
-% % piecewise definition
-% if t < (1/r) + num_cycles_occured*period
-%     dfdt = r;
-% elseif t < 1/r + t_off + num_cycles_occured*period
-%     dfdt = 0;
-% elseif t < t_off + 2/r + num_cycles_occured*period
-%     dfdt = -r;
-% elseif t < period+ num_cycles_occured*period
-%     dfdt = 0;
-% else
-%     disp('error in update_trapezoid_signal: one_cycle_t should be less than period');
-%     trapezoid_signal_out = NaN;     % need to pass something to function output
-%     return
-% end
-% 
-
 
 % For simplicity, define derivative using a shifted time variable "one_cycle_t" such that trapezoid
 % starts at one_cycle_t = 0. Do this using t modulo the period.
