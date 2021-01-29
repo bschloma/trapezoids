@@ -11,7 +11,7 @@ period = 0.5;
 r = [5,8,20];
 inverse_r = 1./r;
 t_on = 0.1.*ones(size(r));
-t_off = period - t_on - 2.*inverse_r;
+t_off = period - t_on;
 if sum(t_off < 0) > 0
     disp(['t_off is negative!'])
     return
@@ -49,9 +49,9 @@ end
 set(gca,'fontsize',24,'linewidth',4)
 xlabel('time (hours)','fontsize',24)
 ylabel('MS2','fontsize',24)
-axis([0,Tmax,0,1])
+%axis([0,Tmax,0,1])
 
-% mrna
+% mrna 
 subplot(1,2,2); hold on;
 
 for i = 1:numel(r)
